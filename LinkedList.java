@@ -1,25 +1,25 @@
 package Linked_List;
 
-public class LinkedList {
+public class LinkedList<T> {
 
-	public Node root;
+	public  Node head;
 
-	static class Node {
-		int data;
+	public static class Node<T> {
+		T data;
 		Node next;
 
-		Node(int data) {
+		Node(T data) {
 			this.data = data;
 		}
 	}
 
 	// 1> add new node at the end of the linked list
-	public void add(int newData) {
+	public void add(T newData) {
 		Node temp = new Node(newData);
-		if (root == null)
-			root = temp;
+		if (head == null)
+			head = temp;
 		else {
-			Node node = root;
+			Node node = head;
 			while (node.next != null)
 				node = node.next;
 			node.next = temp;
@@ -27,17 +27,17 @@ public class LinkedList {
 	}
 
 	// 1a> recursively add nodes
-	void addRecursive(int data) {
-		if (root == null) {
-			root = new Node(data);
+	void addRecursive(T data) {
+		if (head == null) {
+			head = new Node(data);
 			return;
 		}
-		Node node = root;
+		Node node = head;
 		recursiveSupport(node, data);
 	}
 
 	// Suportive method for addRecursive
-	void recursiveSupport(Node node, int data) {
+	void recursiveSupport(Node node, T data) {
 		if (node.next == null) {
 			node.next = new Node(data);
 			return;
@@ -47,8 +47,8 @@ public class LinkedList {
 
 	// 1b> add node in particular position
 
-	void add(int data, int position) {
-		Node node = root;
+	void add(T data, int position) {
+		Node node = head;
 		int count = 0;
 		while (count != position) {
 			node = node.next;
@@ -60,7 +60,7 @@ public class LinkedList {
 	}
 
 	// 2> display linked list
-	public void display(Node node) {
+	public static void display(Node node) {
 		if (node != null)
 			System.out.print(node.data);
 		else
@@ -72,17 +72,58 @@ public class LinkedList {
 
 	// 3> delete a node from last
 	void delete() {
-		if (root == null) {
+		if (head == null) {
 			System.out.println("Empty list");
 			return;
 		}
 
-		if (root.next == null)
-			root = null;
-		Node node = root;
+		if (head.next == null)
+			head = null;
+		Node node = head;
 		while (node.next.next != null) {
 			node = node.next;
 		}
 		node.next = null;
 	}
+
+	// 4> Reverse a linked list in a iterative way
+
+	Node reverseItr(Node node) {
+		Node prev = null;
+		Node current = head;
+		Node nextEle = null;
+		while (current != null) {
+			nextEle = current.next;
+			current.next = prev;
+			prev = current;
+			current = nextEle;
+		}
+		head = prev;
+		return head;
+	}
+
+	// 5> Reverse A linked list in a recursive way
+	public  Node reverseRec(Node node) {
+		if (node.next == null) {
+			head = node;
+			return head;
+		}
+		reverseRec(node.next);
+		Node temp = node.next;
+		temp.next = node;
+		node.next = null;
+		return head;
+	}
+
+	// 6>Size of linked list
+	public int size() {
+		Node temp = head;
+		int count = 0;
+		while (temp != null) {
+			count++;
+			temp = temp.next;
+		}
+		return count;
+	}
+
 }
