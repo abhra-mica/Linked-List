@@ -1,9 +1,7 @@
 package Linked_List;
-
 import Linked_List.LinkedList.Node;
 
 public class DelDuplicateNodesFromUnsortedLinkedList {
-
 	public static void main(String[] args) {
 		LinkedList<Integer> list1 = new LinkedList<>();
 		list1.addRecursive(1);
@@ -15,14 +13,15 @@ public class DelDuplicateNodesFromUnsortedLinkedList {
 		list1.addRecursive(5);
 		list1.display(list1.head);
 		System.out.println("\n=====================");
-
-		list1.display(delDuplicateNodes(list1, 5));
+		delDuplicateNodes(list1, 5);
+		list1.display(list1.head);
 	}
 
-	static Node delDuplicateNodes(LinkedList<Integer> list, int higestNumber) {
+	
+	//Asuming we know the highest number present in the linked list.If we don't know then we have to take Integer.MAX_VALUE
+	public static void delDuplicateNodes(LinkedList<Integer> list, int higestNumber) {
 		int[] hashing = new int[higestNumber+1];
-		Node modifiedHead = list.head;
-		Node previous = list.head;
+		Node previous = list.head;   //previous used to delete the next duplicate node
 		Node current = previous.next;
 
 		hashing[(Integer) previous.data] = 1;
@@ -37,6 +36,5 @@ public class DelDuplicateNodesFromUnsortedLinkedList {
 				previous = previous.next;
 			}
 		}
-		return modifiedHead;
 	}
 }
