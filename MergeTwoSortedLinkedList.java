@@ -1,9 +1,7 @@
 package Linked_List;
-
 import Linked_List.LinkedList.Node;
 
 public class MergeTwoSortedLinkedList {
-
 	public static void main(String[] args) {
 		LinkedList<Integer> list1 = new LinkedList<>();
 		list1.addRecursive(10);
@@ -23,7 +21,7 @@ public class MergeTwoSortedLinkedList {
 		list1.display(node);
 	}
 
-	static Node mergeTwoSortedLinkedList(LinkedList<Integer> list1,
+	public static Node mergeTwoSortedLinkedList(LinkedList<Integer> list1,
 			LinkedList<Integer> list2) {
 		Node currentPtr = null;
 		Node firstListPtr = null;
@@ -44,7 +42,7 @@ public class MergeTwoSortedLinkedList {
 			firstListPtr = list1.head;
 		}
 
-		// After this loop either one of the below while loop will execute.
+		// Throw below while loop creating new list by comparing elements from both lists.
 		while (firstListPtr != null && secListPtr != null) {
 			if ((Integer) firstListPtr.data < (Integer) secListPtr.data) {
 				currentPtr.next = firstListPtr;
@@ -56,7 +54,8 @@ public class MergeTwoSortedLinkedList {
 				secListPtr = secListPtr.next;
 			}
 		}
-
+		
+		//After above while loop one of the below while loop will execute.
 		while (firstListPtr != null) {
 			currentPtr.next = firstListPtr;
 			firstListPtr = firstListPtr.next;
