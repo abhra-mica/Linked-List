@@ -1,5 +1,4 @@
 package Linked_List;
-
 import Linked_List.LinkedList.Node;
 
 public class Find_Nth_Node_From_Last {
@@ -17,8 +16,7 @@ public class Find_Nth_Node_From_Last {
 		System.out.println("Nth Node from last-- " + nthLastNode.data);
 	}
 
-	static Node findNthNodeFromLast(LinkedList<String> list, int n) {
-
+	public static Node findNthNodeFromLast(LinkedList<String> list, int n) {
 		Node actual = list.head;
 		Node faster = list.head;
 		int i = 0;
