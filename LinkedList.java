@@ -1,13 +1,11 @@
 package Linked_List;
 
 public class LinkedList<T> {
-
 	public  Node head;
 
 	public static class Node<T> {
 		T data;
 		Node next;
-
 		Node(T data) {
 			this.data = data;
 		}
@@ -46,7 +44,6 @@ public class LinkedList<T> {
 	}
 
 	// 1b> add node in particular position
-
 	void add(T data, int position) {
 		Node node = head;
 		int count = 0;
@@ -87,7 +84,6 @@ public class LinkedList<T> {
 	}
 
 	// 4> Reverse a linked list in a iterative way
-
 	Node reverseItr(Node node) {
 		Node prev = null;
 		Node current = head;
