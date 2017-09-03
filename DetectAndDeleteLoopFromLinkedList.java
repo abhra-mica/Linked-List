@@ -1,5 +1,4 @@
 package Linked_List;
-
 import static Linked_List.LinkedList.*;
 
 public class DetectAndDeleteLoopFromLinkedList {
