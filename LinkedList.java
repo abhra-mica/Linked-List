@@ -11,6 +11,16 @@ public class LinkedList<T> {
 		}
 	}
 
+	//No argument constructor
+	public LinkedList() {
+		super();
+	}
+
+	//Argumented constructor
+	public LinkedList(Node head) {
+		this.head = head;
+	}
+
 	// 1> add new node at the end of the linked list
 	public void add(T newData) {
 		Node temp = new Node(newData);
