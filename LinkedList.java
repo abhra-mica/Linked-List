@@ -1,8 +1,7 @@
-package Linked_List;
-
 public class LinkedList<T> {
 	public  Node head;
 
+	//Inner class to represents nodes
 	public static class Node<T> {
 		T data;
 		Node next;
