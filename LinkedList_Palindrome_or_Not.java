@@ -1,7 +1,4 @@
-package Linked_List;
-
 import static Linked_List.LinkedList.*;
-
 /*Steps:-
  * 1> Split the linked list in the middle.
  * 2>Prepare two linked lists,if odd ignore the middle node.
@@ -24,7 +21,7 @@ public class LinkedList_Palindrome_or_Not {
 		System.out.println(isPalindrome(list));
 	}
 
-	static boolean isPalindrome(LinkedList list) {
+	 private static boolean isPalindrome(LinkedList list) {
 		Node slowPtr = list.head;
 		Node fastPtr = list.head;
 
@@ -38,7 +35,7 @@ public class LinkedList_Palindrome_or_Not {
 				break;
 			}
 			if (fastPtr.next == null) {// Odd List
-				secondList = slowPtr.next;
+				secondList = slowPtr.next.next;
 				firstListEndNode.next = null;
 				break;
 			}
