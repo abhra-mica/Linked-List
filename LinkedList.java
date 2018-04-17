@@ -130,5 +130,46 @@ public class LinkedList<T> {
 		}
 		return count;
 	}
+	
+	// 7>Swap node without swaping data
+	public void swapNodes(int x, int y) {
+		Node currX = head;
+		Node prevX = null;
+		Node currY = head;
+		Node prevY = null;
 
+		if (x == y)
+		return;
+
+		// Below two while blocks to track X,Y and it's previous elements
+		while (currX != null && (Integer) currX.data != x) {
+			prevX = currX;
+			currX = currX.next;
+		}
+		while (currY != null && (Integer) currY.data != y) {
+			prevY = currY;
+			currY = currY.next;
+		}
+
+		// If either X or Y are not present then no need to swap
+		if (currX == null || currY == null) {
+			System.out.println("Node are not available");
+			return;
+		}
+
+		// swap nodes
+		if (prevX != null)
+		    prevX.next = currY;
+		else
+		    head = currY;
+
+		if (prevY != null)
+		    prevY.next = currX;
+		else
+		    head = currX;
+		
+		Node temp = currY.next;
+		currY.next = currX.next;
+		currX.next = temp;
+	}
 }
