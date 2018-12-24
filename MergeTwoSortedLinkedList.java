@@ -42,7 +42,7 @@ public class MergeTwoSortedLinkedList {
 			firstListPtr = list1.head;
 		}
 
-		// Throw below while loop creating new list by comparing elements from both lists.
+		// Through below while loop creating new list by comparing elements from both lists.
 		while (firstListPtr != null && secListPtr != null) {
 			if ((Integer) firstListPtr.data < (Integer) secListPtr.data) {
 				currentPtr.next = firstListPtr;
