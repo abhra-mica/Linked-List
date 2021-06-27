@@ -1,10 +1,6 @@
-import static Linked_List.LinkedList.*;
-/*Steps:-
- * 1> Split the linked list in the middle.
- * 2>Prepare two linked lists,if odd ignore the middle node.
- * 3>Reverse the second linked list.
- * 4>Compare the two linked list.
- *  */
+package LINKED_LIST;
+
+import LINKED_LIST.LinkedList.Node;
 
 public class LinkedList_Palindrome_or_Not {
 
@@ -21,28 +17,27 @@ public class LinkedList_Palindrome_or_Not {
 		System.out.println(isPalindrome(list));
 	}
 
-	 private static boolean isPalindrome(LinkedList list) {
+	private static boolean isPalindrome(LinkedList list) {
 		Node slowPtr = list.head;
+		Node prevSlowPtr = null;
 		Node fastPtr = list.head;
 
 		Node firstList = list.head;
 		Node secondList = null;
-		Node firstListEndNode = list.head;    //This variable to hold the last element of first list
+
 		while (true) {
 			if (fastPtr == null) { // Even List
-				secondList = slowPtr.next;
-				firstListEndNode.next = null;
+				secondList = prevSlowPtr.next;
+				prevSlowPtr.next = null;
 				break;
 			}
 			if (fastPtr.next == null) {// Odd List
-				secondList = slowPtr.next.next;
-				firstListEndNode.next = null;
+				secondList = slowPtr.next;
+				prevSlowPtr.next = null;
 				break;
 			}
-			//Below if block for calculating the last element of the first list
-			if (firstListEndNode.equals(slowPtr))     
-				firstListEndNode = firstListEndNode.next;
 
+			prevSlowPtr = slowPtr;
 			slowPtr = slowPtr.next;
 			if (fastPtr.next != null)
 				fastPtr = fastPtr.next.next;
