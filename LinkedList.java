@@ -1,4 +1,4 @@
-ublic class LinkedList<T> {
+public class LinkedList<T> {
 	public  Node head;
 
 	//Inner class to represents nodes
